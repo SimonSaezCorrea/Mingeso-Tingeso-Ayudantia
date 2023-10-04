@@ -1,0 +1,56 @@
+version: "3.8"
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - topeducation1
+      - topeducation2
+
+  postgres-db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql
+    environment:
+      POSTGRES_DB: topEducation
+      POSTGRES_PASSWORD: Simon_789
+      POSTGRES_USER: postgres
+    ports:
+      - "5432:5432"
+
+  topeducation1:
+    container_name: project-topeducation1
+    image: simonsaez/project-topeducation
+    ports:
+      - "8091:8090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/topEducation
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=Simon_789
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - postgres-db
+  topeducation2:
+    container_name: project-topeducation2
+    image: simonsaez/project-topeducation
+    ports:
+      - "8092:8090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/topEducation
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=Simon_789
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - postgres-db
