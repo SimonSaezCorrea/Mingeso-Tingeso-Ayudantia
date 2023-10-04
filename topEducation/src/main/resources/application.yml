@@ -1,0 +1,22 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: topEducation
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    plataform: postgres
+    driver-class-name: org.postgresql.Driver
+    dbname: topEducation
+    url: jdbc:postgresql://localhost:5432/topEducation
+    username: postgres
+    password: Simon_789
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB

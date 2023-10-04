@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Agregar Proveedor</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="../static/css/agregar.css" type="text/css" th:href="@{/css/agregar.css}" />
+        <link rel="stylesheet" href="../static/css/navbar.css" type="text/css" th:href="@{/css/navbar.css}" />
+        <script>
+            function navegar(lugar) {
+                location.href = lugar;
+            }
+        </script>
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="logo">
+                <h1 onclick="navegar('/')">Top Education</h1>
+            </div>
+            <a class="btn" href="/"><button>Volver al menú principal</button></a>
+            <a class="btn" href="/lista_estudiante"><button>Lista Estudiante</button></a>
+        </header>
+        <form th:action="@{/agregar_estudiante}" method="POST">
+            <label for="rut">Rut:</label>
+            <input type="text" id="rut" name="rut" />
+
+            <label for="nombres">Nombres:</label>
+            <input type="text" id="nombres" name="nombres" />
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" />
+
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" />
+
+            <label for="anio_egreso">Año de egreso del colegio:</label>
+            <input type="date" id="anio_egreso" name="anio_egreso" />
+
+            <label for="tipo_colegio"> Tipo: </label>
+            <select id="tipo_colegio" name="tipo_colegio" required>
+                <option value="TipoColegio" disabled selected>Tipo colegio</option>
+                <option value="Municipal">Municipal</option>
+                <option value="Subvencionado">Subvencionado</option>
+                <option value="Privado">Privado</option>
+            </select>
+
+            <label for="nombre_colegio">Nombre del colegio:</label>
+            <input type="text" id="nombre_colegio" name="nombre_colegio" />
+
+            <input id="enviar" type="submit" value="Enviar" />
+        </form>
+    </body>
+</html>

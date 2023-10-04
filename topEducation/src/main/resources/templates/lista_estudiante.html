@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Listado de proveedores</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="../static/css/navbar.css" type="text/css" th:href="@{/css/navbar.css}" />
+        <link rel="stylesheet" href="../static/css/listas.css" type="text/css" th:href="@{/css/listas.css}" />
+        <script>
+            function navegar(lugar) {
+                location.href = lugar;
+            }
+        </script>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo">
+                <h1 onclick="navegar('/')">Top Education</h1>
+            </div>
+            <nav></nav>
+            <a class="btn" href="/"><button>Volver al menú principal</button></a>
+            <a class="btn" href="/agregar_estudiante"><button>Ingresar nuevo Estudiante</button></a>
+        </header>
+        <div th:align="center" class="container my-2">
+            <h1><b> Listado de proveedores</b></h1>
+            <table th:border="1" class="content-table">
+                <thead>
+                    <tr>
+                        <th>Rut</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Tipo Colegio</th>
+                        <th>Nombre Colegio</th>
+                        <th>Año Egreso</th>
+                        <th>Año Ingreso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="estudiante:${estudiantes}">
+                        <td th:text="${estudiante.rut}"></td>
+                        <td th:text="${estudiante.nombres}"></td>
+                        <td th:text="${estudiante.apellidos}"></td>
+                        <td th:text="${estudiante.fecha_nacimiento}"></td>
+                        <td th:text="${estudiante.tipo_colegio}"></td>
+                        <td th:text="${estudiante.nombre_colegio}"></td>
+                        <td th:text="${estudiante.anio_egreso}"></td>
+                        <td th:text="${estudiante.anio_ingreso}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
