@@ -1,0 +1,13 @@
+mvn clean install -DskipTests=True
+docker volume create postgresql-db-data
+docker build -t simonsaez/project-topeducation .
+docker push simonsaez/project-topeducation
+docker-compose up
+
+------------
+
+docker-compose down 
+docker rmi simonsaez/project-topeducation
+docker rmi nginx
+docker rmi postgres
+docker volume prune
