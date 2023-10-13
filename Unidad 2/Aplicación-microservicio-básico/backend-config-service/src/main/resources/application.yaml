@@ -9,4 +9,4 @@ spring:
         git:
           default-label: master
           uri: https://github.com/SimonSaezCorrea/Mingeso-Tingeso-Ayudantia
-          search-paths: tree/master/Ayudantía%202/Aplicación-microservicio-básico/config-data
+          search-paths: "Unidad 2/Aplicación-microservicio-básico/config-data"
