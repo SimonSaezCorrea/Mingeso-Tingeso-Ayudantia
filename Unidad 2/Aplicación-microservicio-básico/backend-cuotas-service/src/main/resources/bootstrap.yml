@@ -1,0 +1,26 @@
+spring:
+  devtools:
+    restart:
+      aditional-paths: src/main/java
+  application:
+    name: backend-cuotas-service
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  datasource:
+    plataform: postgres
+    driver-class-name: org.postgresql.Driver
+    dbname: topEducationCuotas
+    url: jdbc:postgresql://localhost:5432/topEducationCuotas
+    username: postgres
+    password: Simon_789
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB

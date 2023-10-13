@@ -1,0 +1,26 @@
+spring:
+  devtools:
+    restart:
+      aditional-paths: src/main/java
+  application:
+    name: backend-estudiantes-service
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  datasource:
+    plataform: postgres
+    driver-class-name: org.postgresql.Driver
+    dbname: topEducationEstudiantes
+    url: jdbc:postgresql://localhost:5432/topEducationEstudiantes
+    username: postgres
+    password: Simon_789
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
