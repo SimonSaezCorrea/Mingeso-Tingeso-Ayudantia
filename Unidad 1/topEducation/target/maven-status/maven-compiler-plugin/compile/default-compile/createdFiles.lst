@@ -1,0 +1,15 @@
+tingeso_mingeso\topEducation\entities\TipoColegioEntity.class
+tingeso_mingeso\topEducation\entities\NotasEntity.class
+tingeso_mingeso\topEducation\repositories\TipoColegioRepository.class
+tingeso_mingeso\topEducation\entities\CuotasEntity.class
+tingeso_mingeso\topEducation\services\CuotasService.class
+tingeso_mingeso\topEducation\repositories\CuotasRepository.class
+tingeso_mingeso\topEducation\TopEducationApplication.class
+tingeso_mingeso\topEducation\entities\EstudianteEntity.class
+tingeso_mingeso\topEducation\services\AdministracionService.class
+tingeso_mingeso\topEducation\controllers\CuotasController.class
+tingeso_mingeso\topEducation\repositories\EstudianteRepository.class
+tingeso_mingeso\topEducation\controllers\HomeController.class
+tingeso_mingeso\topEducation\services\TipoColegioService.class
+tingeso_mingeso\topEducation\controllers\EstudianteController.class
+tingeso_mingeso\topEducation\services\EstudianteService.class
