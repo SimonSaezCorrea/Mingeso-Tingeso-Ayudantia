@@ -17,13 +17,8 @@ public class EstudianteController {
     EstudianteService estudianteService;
 
     @PostMapping()
-    public ResponseEntity<EstudianteEntity> newEstudiante(@RequestBody String rut,
-                                                          @RequestBody String nombres,
-                                                          @RequestBody String apellidos,
-                                                          @RequestBody String fecha_nacimiento,
-                                                          @RequestBody String tipo_colegio,
-                                                          @RequestBody String nombre_colegio,
-                                                          @RequestBody String anio_egreso) {
+    public ResponseEntity<EstudianteEntity> newEstudiante(@RequestBody EstudianteEntity estudiante) {
+        /*
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate NewFechaNacimiento = LocalDate.parse(fecha_nacimiento, formato);
         LocalDate NewAnioEgreso = LocalDate.parse(anio_egreso, formato);
@@ -33,6 +28,11 @@ public class EstudianteController {
         EstudianteEntity estudianteEntity = new EstudianteEntity(rut, nombres, apellidos, NewFechaNacimiento, idTipoColegio, nombre_colegio, NewAnioEgreso, anio_ingreso);
         estudianteService.save(estudianteEntity);
         return ResponseEntity.ok(estudianteEntity);
+         */
+        LocalDate anio_ingreso = LocalDate.now();
+        estudiante.setAnio_ingreso(anio_ingreso);
+        estudianteService.save(estudiante);
+        return ResponseEntity.ok(estudiante);
     }
 
     @GetMapping("/")
