@@ -365,4 +365,4 @@ management:
 1. Hay que destacar que el config-data siempre tiene que estar subido al git y en casos de cambios, habrá que subir los cambios. Así el config-service podrá efectuar los cambios (Ya que lee el git).
 2. El orden de inicio de las aplicaciones es config-service > eureka-service > Otros Servicios > gateway-service.
 3. Al levantar config-service y luego eureka-service, dice que fue levantado en el puerto 8080. esto significa que hubo un problema en la sincronización de config-service con el config-data, esto puede ser debido a que hay un error en el config-data (en el archivo de eureka) o en el config-service (problema a la hora de acceder a la carpeta).
-
+4. Usar la versión de Maven 2.5.4, ya que es por el uso de ciertos metodos que están en esa versión. En caso de querer usar una versión más actualizada, ciertos métodos se cambiarán.
