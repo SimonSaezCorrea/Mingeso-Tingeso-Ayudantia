@@ -15,7 +15,18 @@
 
 Para el uso de Terraform, se debe hacer en una distribución de Linux. Se puede hacer uso de una máquina virtual.
 
-[Link descarga Ubuntu](https://ubuntu.com/download/desktop)
+* Maquina Virtual
+    * [Virtual Box](https://www.virtualbox.org/wiki/Downloads)
+    * [Hyper-V](https://www.microsoft.com/es-es/evalcenter/download-hyper-v-server-2019)
+* Linux
+    * [Link descarga Ubuntu](https://ubuntu.com/download/desktop)
+    * [Link descarga Kali Linux](https://www.kali.org/get-kali/)
+    * [Link descarga Debian](https://www.debian.org/index.en.html)
+    * [Link descarga CentOS Linux](https://www.debian.org/index.en.html)
+    * [Link descarga CentOS Stream](https://www.centos.org/download/)
+    * [Link descarga Fedora](https://fedoraproject.org/es/workstation/download/)
+
+A recomendación, usar Kali Linux en lugar de Ubuntu. Consume menos y además te da la posiblidad de copiar algo desde Window a Kali.
 
 ## Instalar Terraform
 

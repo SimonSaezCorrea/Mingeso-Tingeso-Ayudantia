@@ -18,10 +18,7 @@ La ubicación, por lo general, es **C:\Program Files\Git\usr\bin**, pero tambié
 
 ## Instalar
 
-El archivo tiene que ser un **.war**
-
-[Link Jenkins](https://www.jenkins.io/download/)
-
+Para instalar [Jenkins](https://www.jenkins.io/download/), se debe elegir el archivo que es **.war**
 
 ## Ejecutar
 
