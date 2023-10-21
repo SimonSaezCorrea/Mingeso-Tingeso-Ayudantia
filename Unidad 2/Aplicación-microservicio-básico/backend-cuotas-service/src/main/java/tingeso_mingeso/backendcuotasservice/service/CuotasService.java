@@ -1,6 +1,9 @@
 package tingeso_mingeso.backendcuotasservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import tingeso_mingeso.backendcuotasservice.entity.CuotasEntity;
@@ -44,7 +47,14 @@ public class CuotasService {
     }
 
     public EstudianteEntity findByRut(String rut){
-        return restTemplate.getForObject("http://localhost:8002/estudiante/" + rut, EstudianteEntity.class);
+        System.out.println("rut: "+rut);
+        ResponseEntity<EstudianteEntity> response = restTemplate.exchange(
+                "http://localhost:8080/estudiante/"+rut,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<EstudianteEntity>() {}
+        );
+        return response.getBody();
     }
     public List<CuotasEntity> findCuotaByRut(String rut){
         return cuotasRepository.findCuotaByRut(rut);

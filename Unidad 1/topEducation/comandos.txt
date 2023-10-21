@@ -11,3 +11,18 @@ docker rmi simonsaez/project-topeducation
 docker rmi nginx
 docker rmi postgres
 docker volume prune
+
+
+mvn clean install -DskipTests=True
+docker volume create postgres-db-data
+docker build -t simonsaez/preuniversitario .
+docker push simonsaez/preuniversitario
+docker-compose up
+
+
+mvn clean install -DskipTests=True
+docker volume create mysql-db-data
+docker build -t simonsaez/preuniversitario .
+docker push simonsaez/preuniversitario
+docker-compose up
+

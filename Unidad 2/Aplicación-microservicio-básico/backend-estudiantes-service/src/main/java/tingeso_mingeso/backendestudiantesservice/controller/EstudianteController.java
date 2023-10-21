@@ -44,6 +44,7 @@ public class EstudianteController {
     @GetMapping("/{rut}")
     public ResponseEntity<EstudianteEntity> findByRut(@PathVariable("rut") String rut) {
         EstudianteEntity estudianteEntity = estudianteService.findByRut(rut);
+        System.out.println(estudianteEntity);
         return ResponseEntity.ok(estudianteEntity);
     }
 }

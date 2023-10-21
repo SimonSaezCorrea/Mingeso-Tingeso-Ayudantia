@@ -15,7 +15,7 @@ public class CuotasController {
     @Autowired
     CuotasService cuotasService;
 
-    @GetMapping("/{rut}")
+    @GetMapping("/{rut}/{cuotas}")
     public ResponseEntity<List<CuotasEntity>> cuotas(@PathVariable("rut") String rut, @PathVariable("cuotas") String cuotas){
         EstudianteEntity estudianteEntity = cuotasService.findByRut(rut);
         System.out.println(estudianteEntity);
@@ -23,20 +23,23 @@ public class CuotasController {
             if(cuotasService.findCuotaByRut(estudianteEntity.getRut()).isEmpty()){
                 cuotasService.descuentoArancel_generacionCuotas(estudianteEntity, Integer.parseInt(cuotas));
                 List<CuotasEntity> cuotasEntities = cuotasService.findCuotaByRut(estudianteEntity.getRut());
+                System.out.println(cuotasEntities);
                 return ResponseEntity.ok(cuotasEntities);
             }
         }
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/lista_cuotas/{rut}")
+    @GetMapping("/{rut}")
     public ResponseEntity<List<CuotasEntity>> listado(@PathVariable("rut") String rut){
+        System.out.println("Listar");
+        System.out.println("rut: "+rut+"\n");
         EstudianteEntity estudianteEntity = cuotasService.findByRut(rut);
         System.out.println(estudianteEntity);
         if(estudianteEntity != null){
             List<CuotasEntity> cuotasEntities = cuotasService.findCuotaByRut(estudianteEntity.getRut());
             return ResponseEntity.ok(cuotasEntities);
         }
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(null);
     }
 }
