@@ -26,7 +26,14 @@ En comparación de una aplicación en monolitico y microservicio, es que en el m
 
 Cada microservicio tiene su base de datos respectiva, la ventaja que se tiene es que cada microservicio puede ser en un lenguaje distinto y una base de dato distinta.
 
+Cada microservicio pueden estar todos en el mismo GitHub o pueden estar en GitHub separados.
+
 **El frontend puede considerarse como un microservicio.**
+
+Conceptos:
+* **Config**: Es un servidor de configuraciones, encargado de dar las configuraciones a los servicios necesarios (Eureka, gateway y otros) en la cual las configuraciones se deben encontrar el GitHub.
+* **Eureka**: Es un servicio que nos permite localizar los servicios, ya que conoce los puertos de los servicios.
+* **Gateway**: Es el servicio que nos permite encaminar a los otros servicios, esto provoca que nos tengamos que conectar mediante el puerto del gateway y el gateway deriva a los servicios.
 
 ## Dependencias para los servicios <a name="dependencias"></a>
 
@@ -275,6 +282,8 @@ Ahora bien, para poder utilizarlo en tu servicio es de la siguiente forma:
 ## Carpeta config-data <a name="config-data"></a>
 
 Aquí va la configuración de los puertos y eureka de cada servicio (Menos el de config)
+
+**SE RECOMIENDA NO USAR PUERTOS ALEATORIOS, PORQUE VA A SER MÁS CÓMODO DE TRABAJAR CON KUBERNETES (MINIKUBE)**
 
 ### Eureka <a name="config_eureka"></a>
 
