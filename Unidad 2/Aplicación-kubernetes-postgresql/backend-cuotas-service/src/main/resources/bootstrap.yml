@@ -1,0 +1,28 @@
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://backend-eureka-service:8761/eureka/
+spring:
+  devtools:
+    restart:
+      aditional-paths: src/main/java
+  application:
+    name: backend-cuotas-service
+  jpa:
+    database-platform: org.hibernate.dialect.PostgresPlusDialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  datasource:
+    plataform: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_DB_HOST}:5432/${POSTGRES_DB_CUOTAS}?useSSL=false
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}

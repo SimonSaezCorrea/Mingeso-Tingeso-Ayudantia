@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-cuotas-deployment
+  labels:
+    app: backend-cuotas-deployment
+spec:
+  selector:
+    matchLabels:
+      app: backend-cuotas-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backend-cuotas-deployment
+    spec:
+      containers:
+        - name: topeducation-estudiantes-postgres
+          image: simonsaez/topeducation-estudiantes-postgres:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: http://backend-config-service:8081
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: http://backend-eureka-service:8761
+            - name: eureka.instance.preferIpAddress
+              value: "true"
+            - name: POSTGRES_DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: POSTGRES_DB_HOST
+            - name: POSTGRES_DB_ESTUDIANTES
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: POSTGRES_DB_ESTUDIANTES
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: POSTGRES_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-cuotas-service
+  labels:
+    app: backend-cuotas-service
+spec:
+  selector:
+    app: backend-cuotas-deployment
+  ports:
+    - protocol: TCP
+      port: 8085
+      targetPort: 8085
+  type: LoadBalancer

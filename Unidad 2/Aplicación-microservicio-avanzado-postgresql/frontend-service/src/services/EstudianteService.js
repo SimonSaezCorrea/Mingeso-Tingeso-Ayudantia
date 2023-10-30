@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const ESTUDIANTE_API_URL = "http://localhost:8080/estudiante/";
 
-class AcopioLecheService {
+class EstudianteService {
 
     getEstudiantes(){
         return axios.get(ESTUDIANTE_API_URL);
@@ -16,4 +16,4 @@ class AcopioLecheService {
     }
 }
 
-export default new AcopioLecheService()
+export default new EstudianteService()

@@ -5,6 +5,7 @@ import "../styles/listas.css";
 import "../styles/subir_excel.css";
 import "../styles/navbar.css";
 import "../styles/agregar.css";
+import "../styles/navbar.css";
 import Estudiantes from "../images/estudiantes.png"
 import ListaCuotas from "../images/plan-de-estudios.png"
 import Cuota from "../images/grafico-circular.png"
