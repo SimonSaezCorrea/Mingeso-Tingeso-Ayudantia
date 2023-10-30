@@ -475,7 +475,11 @@ Si queremos ver el log de un service y ver lo que muestra por consola de su ejec
 kubectl logs <Name pods>
 ```
 
-Es bastante útil para saber si todo va bien
+```
+kubectl logs <Name pods> -f
+```
+
+Es bastante útil para saber si todo va bien. El segundo comando es lo mismo, pero permite ver la consola en tiempo real, para parar de ver la consola se puede usar CTRL + C
 
 ## Cambios a configuraciones de la aplicación <a name="cambios"></a>
 
