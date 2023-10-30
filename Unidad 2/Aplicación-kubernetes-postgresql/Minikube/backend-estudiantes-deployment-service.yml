@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-cuotas-deployment
+  name: backend-estudiantes-deployment
   labels:
-    app: backend-cuotas-deployment
+    app: backend-estudiantes-deployment
 spec:
   selector:
     matchLabels:
-      app: backend-cuotas-deployment
+      app: backend-estudiantes-deployment
   replicas: 1
   template:
     metadata:
       labels:
-        app: backend-cuotas-deployment
+        app: backend-estudiantes-deployment
     spec:
       containers:
         - name: topeducation-estudiantes-postgres
@@ -50,12 +50,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-cuotas-service
+  name: backend-estudiantes-service
   labels:
-    app: backend-cuotas-service
+    app: backend-estudiantes-service
 spec:
   selector:
-    app: backend-cuotas-deployment
+    app: backend-estudiantes-deployment
   ports:
     - protocol: TCP
       port: 8085

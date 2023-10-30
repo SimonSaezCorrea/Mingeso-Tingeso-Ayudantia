@@ -110,10 +110,15 @@ kubectl port-forward <nombre-pod> <puerto-local>:<puerto-contenedor>
 kubectl exec -it <Name pods postgres> bash
 psql -h postgres -U postgres
 
-CREATE DATABASE topEducationCuotas;
-CREATE DATABASE topEducationEstudiantes;
+CREATE DATABASE topeducationcuotas;
+CREATE DATABASE topeducationestudiantes;
+
+Para visualizar las base de datos
+\l
 
 
 minikube service frontend-service
 minikube tunnel
+
+// Este comando es para abrir una pagina que permite visualizar los pods, services entre otras cosas
 minikube dashboard

@@ -26,3 +26,5 @@ spring:
     url: jdbc:postgresql://${POSTGRES_DB_HOST}:5432/${POSTGRES_DB_ESTUDIANTES}?useSSL=false
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
+    hikari:
+      initialization-fail-timeout: 0
