@@ -1,0 +1,30 @@
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://backend-eureka-service:8761/eureka/
+spring:
+  devtools:
+    restart:
+      aditional-paths: src/main/java
+  application:
+    name: backend-estudiantes-service
+  jpa:
+    database: MYSQL
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  datasource:
+    plataform: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_DB_HOST}:3306/${MYSQL_DB_ESTUDIANTES}?useSSL=false
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    hikari:
+      initialization-fail-timeout: 0
