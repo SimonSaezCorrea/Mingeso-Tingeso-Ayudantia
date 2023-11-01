@@ -107,8 +107,7 @@ kubectl logs <Name pods> -f
 
 kubectl port-forward <nombre-pod> <puerto-local>:<puerto-contenedor>
 
-kubectl exec -it <Name pods postgres> bash
-psql -h postgres -U postgres
+kubectl exec -it <Name pods postgres> bash -- psql -h postgres -U postgres
 
 CREATE DATABASE topeducationcuotas;
 CREATE DATABASE topeducationestudiantes;

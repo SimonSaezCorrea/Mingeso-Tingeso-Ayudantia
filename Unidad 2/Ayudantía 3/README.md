@@ -426,43 +426,41 @@ Ambos comandos se deben ejecutar el consolas distintas, el primero permite levan
 ### Ver los archivos <a name="ver_archivos"></a>
 
 Para ver los pods
-
 ```
 kubectl get pods
 ```
 
 Para ver los services
-
 ```
 kubectl get services
 ```
-Para ver los deployments
 
+Para ver los deployments
 ```
 kubectl get deployments
 ```
-Para ver los persistentvolumeclaims
 
+Para ver los persistentvolumeclaims
 ```
 kubectl get persistentvolumeclaims
 ```
-Para ver los persistentvolume
 
+Para ver los persistentvolume
 ```
 kubectl get persistentvolume
 ```
-Para ver los configmaps
 
+Para ver los configmaps
 ```
 kubectl get configmaps
 ```
-Para ver los secrets
 
+Para ver los secrets
 ```
 kubectl get secrets
 ```
-Para ver todo
 
+Para ver todo
 ```
 kubectl get all
 ```
@@ -477,6 +475,38 @@ kubectl logs <Name pods>
 
 ```
 kubectl logs <Name pods> -f
+```
+
+### Borrar los archivos
+
+Borrar los Deployments
+```
+kubectl delete deployments <Nombre del Deployments>
+```
+
+Borrar los Service
+```
+kubectl delete Service <Nombre del Service>
+```
+
+Borrar los PersistentVolumeClaims
+```
+kubectl delete PersistentVolumeClaims <Nombre del PersistentVolumeClaims>
+```
+
+Borrar los PersistentVolumes
+```
+kubectl delete PersistentVolumes <Nombre del PersistentVolumes>
+```
+
+Borrar los ConfigMap
+```
+kubectl delete ConfigMap <Nombre del ConfigMap>
+```
+
+Borrar los Secret
+```
+kubectl delete Secret <Nombre del Secret>
 ```
 
 Es bastante útil para saber si todo va bien. El segundo comando es lo mismo, pero permite ver la consola en tiempo real, para parar de ver la consola se puede usar CTRL + C

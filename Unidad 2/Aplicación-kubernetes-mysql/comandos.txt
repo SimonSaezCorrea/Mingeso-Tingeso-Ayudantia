@@ -72,6 +72,7 @@ kubectl delete PersistentVolumes mysql-persistent-volume-claim
 kubectl delete ConfigMap mysql-config-map
 
 kubectl delete Secret mysql-credentials
+kubectl delete Secret mysql-root-credentials
 
 kubectl delete deployments backend-config-deployment
 kubectl delete services backend-config-service
@@ -109,6 +110,9 @@ kubectl port-forward <nombre-pod> <puerto-local>:<puerto-contenedor>
 
 kubectl exec -it <Nombre pod MYSQL> -- mysql -uroot -proot
 kubectl exec -it <Nombre pod MYSQL> -- mysql -usimon -psimon
+
+CREATE USER 'simon'@'localhost' IDENTIFIED BY 'simon';
+grant all privileges on *.* to 'simon'@'localhost';
 
 CREATE DATABASE topeducationcuotas;
 CREATE DATABASE topeducationestudiantes;

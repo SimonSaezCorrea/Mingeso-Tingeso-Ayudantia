@@ -58,6 +58,6 @@ spec:
     app: backend-cuotas-deployment
   ports:
     - protocol: TCP
-      port: 8085
-      targetPort: 8085
+      port: 8083
+      targetPort: 8083
   type: LoadBalancer
