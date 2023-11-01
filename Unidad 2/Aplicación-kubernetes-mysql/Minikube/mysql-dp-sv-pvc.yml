@@ -11,7 +11,7 @@ spec:
   accessModes:
       - ReadWriteOnce
   hostPath:
-      path: "/Users/nayxx/docker/postgres/docker-pg-vol/data"
+      path: "/Users/nayxx/docker/mysql/docker-pg-vol/data"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -52,7 +52,7 @@ spec:
           imagePullPolicy: "IfNotPresent"
           ports:
             - containerPort: 3306
-              name: postgres
+              name: mysql
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
@@ -74,14 +74,14 @@ spec:
                 configMapKeyRef:
                   name: mysql-config-map
                   key: MYSQL_DB_CUOTAS
-            - name: POSTGRES_DB_ESTUDIANTES
+            - name: MYSQL_DB_ESTUDIANTES
               valueFrom:
                 configMapKeyRef:
                   name: mysql-config-map
                   key: MYSQL_DB_ESTUDIANTES
           volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: db-data
+              - mountPath: /var/lib/mysql
+                name: db-data
       volumes:
         - name: db-data
           persistentVolumeClaim:

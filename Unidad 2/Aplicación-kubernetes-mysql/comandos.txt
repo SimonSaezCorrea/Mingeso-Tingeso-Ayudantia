@@ -107,14 +107,14 @@ kubectl logs <Name pods> -f
 
 kubectl port-forward <nombre-pod> <puerto-local>:<puerto-contenedor>
 
-kubectl exec -it <Nombre del pod de MySQL> -- bash -c 'mysql -h <nombre_del_servicio_de_mysql> -u root'
+kubectl exec -it <Nombre pod MYSQL> -- mysql -uroot -proot
+kubectl exec -it <Nombre pod MYSQL> -- mysql -usimon -psimon
 
 CREATE DATABASE topeducationcuotas;
 CREATE DATABASE topeducationestudiantes;
 
 Para visualizar las base de datos
-\l
-
+SHOW DATABASES;
 
 minikube service frontend-service
 minikube tunnel
