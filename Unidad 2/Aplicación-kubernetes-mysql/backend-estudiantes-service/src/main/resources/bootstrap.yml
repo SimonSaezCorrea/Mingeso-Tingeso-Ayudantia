@@ -11,10 +11,10 @@ spring:
   application:
     name: backend-estudiantes-service
   jpa:
-    database: MYSQL
     generate-ddl: true
     show-sql: true
     hibernate:
+      dialect: MySQL8Dialect
       ddl-auto: create
   cloud:
     config:
@@ -23,11 +23,6 @@ spring:
   datasource:
     plataform: mysql
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_DB_HOST}/${MYSQL_DB_ESTUDIANTES}?useSSL=false
+    url: jdbc:mysql://${MYSQL_DB_HOST}/${MYSQL_DB_ESTUDIANTES}?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
-    hikari:
-      minimumIdle: 20
-      maximumPoolSize: 30
-      connectionTimeout: 50000
-      initialization-fail-timeout: 0

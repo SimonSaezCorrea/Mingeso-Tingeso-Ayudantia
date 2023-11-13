@@ -36,7 +36,6 @@ docker build -t simonsaez/topeducation-frontend-postgres .
 docker push simonsaez/topeducation-frontend-postgres
 cd ../
 
-
 ---------------------------------------------------------
 
 
@@ -87,6 +86,23 @@ kubectl delete services backend-estudiantes-service
 
 kubectl delete deployments backend-cuotas-deployment
 kubectl delete services backend-cuotas-service
+
+
+
+---------------------------------------------------------
+
+TENER CUIDADO CON USAR ESTOS DE AQUÍ
+
+kubectl delete services --all
+kubectl delete deployments --all
+kubectl delete ConfigMap --all
+kubectl delete Secret --all
+kubectl delete PersistentVolumes --all
+kubectl delete PersistentVolumeClaims --all
+
+MEJOR BORRAR TODO EL CONTENEDOR
+
+minikube delete --all
 
 
 ---------------------------------------------------------

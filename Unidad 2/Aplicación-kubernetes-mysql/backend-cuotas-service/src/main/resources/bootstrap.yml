@@ -11,10 +11,10 @@ spring:
   application:
     name: backend-cuotas-service
   jpa:
-    database: MYSQL
     generate-ddl: true
     show-sql: true
     hibernate:
+      dialect: MySQL8Dialect
       ddl-auto: create
   cloud:
     config:
@@ -23,6 +23,6 @@ spring:
   datasource:
     plataform: mysql
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_DB_HOST}:3306/${MYSQL_DB_CUOTAS}?useSSL=false
+    url: jdbc:mysql://${MYSQL_DB_HOST}:3306/${MYSQL_DB_CUOTAS}?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
