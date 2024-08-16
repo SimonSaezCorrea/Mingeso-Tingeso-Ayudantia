@@ -139,63 +139,63 @@ Para ello, de antemano se debe tener el siguiente archivo nombrado como "docker-
 
 * Para MySQL
     ```
-    version: "3.8"
-    services:
-    mysql-db:
-        image: mysql
-        restart: always
-        volumes:
-        - ./data/db:/var/lib/mysql
-        environment:
-        MYSQL_ROOT_PASSWORD: Simon_789
-        MYSQL_DATABASE: topEducation
-        ports:
-        - 33060:3306
-    app:
-        container_name: project-topeducation
-        image: simonsaez/project-topeducation
-        ports:
-        - "8090:8090"
-        environment:
-        - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/topEducation?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
-        - SPRING_DATASOURCE_USERNAME=root
-        - SPRING_DATASOURCE_PASSWORD=Simon_789
-        deploy:
-        restart_policy:
-            condition: on-failure
-        depends_on:
-        - mysql-db
+   version: "3.8"
+   services:
+     mysql-db:
+       image: mysql
+       restart: always
+       volumes:
+         - ./data/db:/var/lib/mysql
+       environment:
+         MYSQL_ROOT_PASSWORD: Simon_789
+         MYSQL_DATABASE: topEducation
+       ports:
+         - 33060:3306
+     app:
+       container_name: project-topeducation
+       image: simonsaez/project-topeducation
+       ports:
+         - "8090:8090"
+       environment:
+         - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/topEducation?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+         - SPRING_DATASOURCE_USERNAME=root
+         - SPRING_DATASOURCE_PASSWORD=Simon_789
+       deploy:
+         restart_policy:
+           condition: on-failure
+       depends_on:
+         - mysql-db
     ```
 * Para PostgreSQL
     ```
-    version: "3.8"
-    services:
-    postgres-db:
-        image: postgres:latest
-        restart: always
-        volumes:
-        - ./data/db:/var/lib/postgresql
-        environment:
-        POSTGRES_DB: topEducation
-        POSTGRES_PASSWORD: Simon_789
-        POSTGRES_USER: postgres
-        ports:
-        - "5432:5432"
-    topeducation:
-        container_name: project-topeducation
-        image: simonsaez/project-topeducation
-        ports:
-        - "8090:8090"
-        environment:
-        - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/topEducation
-        - SPRING_DATASOURCE_USERNAME=postgres
-        - SPRING_DATASOURCE_PASSWORD=Simon_789
-        - SPRING_JPA_HIBERNATE_DDL_AUTO=create
-        deploy:
-        restart_policy:
-            condition: on-failure
-        depends_on:
-        - postgres-db
+   version: "3.8"
+   services:
+     postgres-db:
+       image: postgres:latest
+       restart: always
+       volumes:
+         - ./data/db:/var/lib/postgresql
+       environment:
+         POSTGRES_DB: topEducation
+         POSTGRES_PASSWORD: Simon_789
+         POSTGRES_USER: postgres
+       ports:
+         - "5432:5432"
+     topeducation:
+       container_name: project-topeducation
+       image: simonsaez/project-topeducation
+       ports:
+         - "8090:8090"
+       environment:
+         - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/topEducation
+         - SPRING_DATASOURCE_USERNAME=postgres
+         - SPRING_DATASOURCE_PASSWORD=Simon_789
+         - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+       deploy:
+         restart_policy:
+           condition: on-failure
+       depends_on:
+         - postgres-db
     ```
 
 ### Levantar Contenedores
